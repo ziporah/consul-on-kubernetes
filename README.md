@@ -93,12 +93,12 @@ kubectl create configmap consul --from-file=configs/server.json
 Create PersistentVolumeClaim and PersistentVolume which Consul uses to store data:
 
 ```
-kubectl create -f persistenvolumes/data-consul-0-pv.yaml
-kubectl create -f persistenvolumes/data-consul-0-pvc.yaml
-kubectl create -f persistenvolumes/data-consul-1-pv.yaml
-kubectl create -f persistenvolumes/data-consul-1-pvc.yaml
-kubectl create -f persistenvolumes/data-consul-2-pv.yaml
-kubectl create -f persistenvolumes/data-consul-2-pvc.yaml
+kubectl create -f persistentvolumes/data-consul-0-pv.yaml
+kubectl create -f persistentvolumes/data-consul-0-pvc.yaml
+kubectl create -f persistentvolumes/data-consul-1-pv.yaml
+kubectl create -f persistentvolumes/data-consul-1-pvc.yaml
+kubectl create -f persistentvolumes/data-consul-2-pv.yaml
+kubectl create -f persistentvolumes/data-consul-2-pvc.yaml
 ```
 
 ### Create the Consul Service
