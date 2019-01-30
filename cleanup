@@ -7,3 +7,4 @@ kubectl delete svc consul
 kubectl delete jobs consul-join
 kubectl delete secrets consul
 kubectl delete configmaps consul
+kubectl delete pv data-consul-0 data-consul-1 data-consul-2
