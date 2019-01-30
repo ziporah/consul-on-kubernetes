@@ -156,9 +156,9 @@ consul members
 ```
 ```
 Node      Address          Status  Type    Build     Protocol  DC   Segment
-consul-0  10.32.2.8:8301   alive   server  1.4.0rc1  2         dc1  <all>
-consul-1  10.32.1.7:8301   alive   server  1.4.0rc1  2         dc1  <all>
-consul-2  10.32.0.13:8301  alive   server  1.4.0rc1  2         dc1  <all>
+consul-0  10.32.2.8:8301   alive   server  1.4.2  2         dc1  <all>
+consul-1  10.32.1.7:8301   alive   server  1.4.2  2         dc1  <all>
+consul-2  10.32.0.13:8301  alive   server  1.4.2  2         dc1  <all>
 ```
 
 ### Accessing the Web UI
