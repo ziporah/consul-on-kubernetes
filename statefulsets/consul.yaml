@@ -20,21 +20,65 @@ spec:
     spec:
       serviceAccountName: consul
       affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - preference:
+              matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - osclu-azu01-c03.uz.kuleuven.ac.be
+            weight: 100
+          - preference:
+              matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - osclu-azu01-i01.uz.kuleuven.ac.be
+            weight: 50
+          - preference:
+              matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - osclu-azu01-i02.uz.kuleuven.ac.be
+            weight: 1
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - osclu-azu01-i01.uz.kuleuven.ac.be
+                - osclu-azu01-i02.uz.kuleuven.ac.be
+                - osclu-azu01-c03.uz.kuleuven.ac.be
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: app
-                    operator: In
-                    values:
-                      - consul
-              topologyKey: kubernetes.io/hostname
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - consul
+            topologyKey: kubernetes.io/hostname
       terminationGracePeriodSeconds: 10
       securityContext:
-        fsGroup: 1000
+        fsGroup: 1000000
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - if [ -f "/tmp/consul/node" ]; then until grep "^node=${HOSTNAME}\$" /tmp/consul/node;
+          do echo "im not on the right host, kill me"; sleep 2; done; else echo "init
+          bootstrap"; fi
+        image: busybox
+        name: init-consul
+        volumeMounts:
+        - mountPath: /tmp/consul
+          name: data
       containers:
         - name: consul
-          image: "consul:1.4.2"
+          image: "docker-registry.default.svc:5000/sno-jvvoor1/uzl-consul:1.4.2"
           env:
             - name: POD_IP
               valueFrom:
@@ -99,4 +143,4 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 1Gi
+            storage: 1014Mi

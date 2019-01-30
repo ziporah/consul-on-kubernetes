@@ -1,6 +1,6 @@
 {
   "hosts": [
-    "cluster.local"
+    "uzleuven.svc"
   ],
   "key": {
     "algo": "rsa",
@@ -8,11 +8,10 @@
   },
   "names": [
     {
-      "C": "US",
-      "L": "Portland",
-      "O": "Kubernetes",
-      "OU": "CA",
-      "ST": "Oregon"
+      "C": "BE",
+      "L": "Leuven",
+      "O": "UZ Leuven",
+      "OU": "Openshift"
     }
   ]
 }

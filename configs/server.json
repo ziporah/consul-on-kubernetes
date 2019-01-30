@@ -5,14 +5,14 @@
   "client_addr": "0.0.0.0",
   "disable_host_node_id": true,
   "data_dir": "/consul/data",
-  "datacenter": "dc1",
-  "domain": "cluster.local",
+  "datacenter": "azu01",
+  "domain": "leuven.svc",
   "key_file": "/etc/tls/consul-key.pem",
   "ports": {
     "https": 8443
   },
   "retry_join": [
-    "provider=k8s label_selector=\"app=consul,component=server\""
+    "provider=k8s namespace=\"sno-jvvoor1\" label_selector=\"app=consul,component=server\""
   ],
   "server": true,
   "telemetry": {
