@@ -63,7 +63,8 @@ spec:
             topologyKey: kubernetes.io/hostname
       terminationGracePeriodSeconds: 10
       securityContext:
-        fsGroup: 1000000
+        fsGroup: 1000
+        runAsUser: 100
       initContainers:
       - command:
         - sh
@@ -79,6 +80,7 @@ spec:
       containers:
         - name: consul
           image: "docker-registry.default.svc:5000/sno-jvvoor1/uzl-consul:1.4.2"
+          imagePullPolicy: Always
           env:
             - name: POD_IP
               valueFrom:
@@ -123,6 +125,7 @@ spec:
             - containerPort: 8301
               name: serflan
             - containerPort: 8302
+              hostPort: 8302
               name: serfwan
             - containerPort: 8600
               name: consuldns
