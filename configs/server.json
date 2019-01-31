@@ -6,7 +6,7 @@
   "disable_host_node_id": true,
   "data_dir": "/consul/data",
   "datacenter": "azu01",
-  "domain": "leuven.svc",
+  "domain": "uzleuven.svc",
   "key_file": "/etc/tls/consul-key.pem",
   "ports": {
     "https": 8443
