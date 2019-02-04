@@ -14,6 +14,11 @@
   "retry_join": [
     "provider=k8s namespace=\"sno-jvvoor1\" label_selector=\"app=consul,component=server\""
   ],
+  "retry_join_wan":[
+                    "osclu-azu01-c03.uz.kuleuven.ac.be", "osclu-azu01-i01.uz.kuleuven.ac.be", "osclu-azu01-i02.uz.kuleuven.ac.be",
+                    "osclu-pew01-c03.uz.kuleuven.ac.be", "osclu-pew01-i01.uz.kuleuven.ac.be", "osclu-pew01-i02.uz.kuleuven.ac.be"
+                  ],
+  "translate_wan_addrs" : true,
   "server": true,
   "telemetry": {
     "prometheus_retention_time": "5m"

@@ -4,3 +4,4 @@ ca.pem
 consul-key.pem
 consul.csr
 consul.pem
+configs/server.json

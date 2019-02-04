@@ -1,0 +1,24 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: local-pv-449402bb
+  labels:
+    storage-label: data-consul-0
+    type: local
+spec:
+  storageClassName: vmdisk
+  capacity:
+    storage: 1014Mi
+  accessModes:
+  - ReadWriteOnce
+  local:
+    path: /mnt/local-storage/vmdisk/consul
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - osclu-pew01-c03.uz.kuleuven.ac.be
+  persistentVolumeReclaimPolicy: Retain

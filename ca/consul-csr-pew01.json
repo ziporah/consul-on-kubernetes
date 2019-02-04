@@ -1,0 +1,19 @@
+{
+  "CN": "server.pew01.uzleuven.svc",
+  "hosts": [
+    "server.pew01.uzleuven.svc",
+    "127.0.0.1"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "BE",
+      "L": "Leuven",
+      "O": "UZ Leuven",
+      "OU": "Consul"
+    }
+  ]
+}

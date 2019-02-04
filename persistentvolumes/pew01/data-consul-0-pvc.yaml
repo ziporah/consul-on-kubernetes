@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-consul-0
+spec:
+  storageClassName: vmdisk
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1014Mi
+  selector:
+    matchLabels:
+      storage-label: data-consul-0
+      type: local
